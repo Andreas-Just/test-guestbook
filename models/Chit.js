@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 
-const todoSchema = new Schema({
+const chitSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -16,13 +16,4 @@ const todoSchema = new Schema({
   },
 });
 
-module.exports = model('Todo', todoSchema);
-
-/*
-const localDate = new Date();
-const localeTime = `
-  ${localDate.getHours().toString().padStart(2, '0')}
-  :
-  ${localDate.getMinutes().toString().padStart(2, '0')}
-`;
-*/
+module.exports = model('Chit', chitSchema);

@@ -1,0 +1,27 @@
+@import "../../assets/scss/utils";
+
+.ChitItem {
+  @extend %flex-column-center;
+  align-items: flex-start;
+
+  &-Header {
+    @extend %flex-center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  &-Name {
+    margin-right: auto;
+    font-weight: 500;
+    font-size: 16px !important;
+  }
+
+  &-Date {
+    color: map_get($colors, link);
+    font-size: 13px !important;
+  }
+
+  &-Description {
+    margin: 15px 0 !important;
+  }
+}

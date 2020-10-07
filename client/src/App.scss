@@ -1,0 +1,31 @@
+@import "assets/scss/utils";
+
+br {
+  display: none;
+}
+
+p {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  font-size: rem(12);
+  height: 100vh;
+
+  &-List {
+    list-style: none;
+    text-align: left;
+  }
+
+  &-Code {
+    display: inline-block;
+    color: indigo;
+    background-color: lighten(lightskyblue, 22%);
+  }
+
+  &-Container {
+    padding-top: 25px;
+    height: auto;
+  }
+}

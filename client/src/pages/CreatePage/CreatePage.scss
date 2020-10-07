@@ -1,0 +1,49 @@
+@import "../../assets/scss/utils";
+$orange: map_get($colors, form-orange);
+$green: map_get($colors, green-darken);
+$grey: map_get($colors, form-grey);
+
+.CreatePage {
+
+  &-TextField .CreatePage-Icon.prefix.active {
+    color: lighten($green, 10);
+  }
+
+  input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+    -webkit-text-fill-color: lighten($green, 10);
+    -webkit-box-shadow: inset 0 0 0 50px $grey !important;
+  }
+
+  &-Input[type]:not(.browser-default),
+  &-Textarea.materialize-textarea {
+    color: lighten($green, 10);
+
+    &::placeholder {
+      color: lighten($orange, 10);
+    }
+  }
+
+  &-Input[type]:not(.browser-default):focus:not([readonly]),
+  &-Textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid $green;
+    box-shadow: 0 5px 5px -5px lighten($green, 25);
+
+    &::placeholder {
+      color: #d5d5d5;
+    }
+  }
+
+  &-Input[type]:not(.browser-default):focus:not([readonly]) + label,
+  &-Textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: lighten($orange, 10);
+  }
+}
+
+@-webkit-keyframes autofill {
+  to {
+    color: inherit;
+    background: transparent;
+  }
+}

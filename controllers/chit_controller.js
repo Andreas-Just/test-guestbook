@@ -1,18 +1,18 @@
-const Todo = require('../models/Chit');
+const Chit = require('../models/Chit');
 
 const generateChit = async (req, res) => {
   try {
-    const { name, description, date, time } =  req.body;
-    const existing = await Todo.findOne({ date, time });
+    const { name, description, date } =  req.body;
+    const existing = await Chit.findOne({ name, description });
 
     if (existing) {
-      return res.json({ todo: existing });
+      return res.json({ chit: existing });
     }
 
-    const todo = new Todo({ name, description, date });
+    const chit = new Chit({ name, description, date });
 
-    await todo.save();
-    res.status(201).json({ todo });
+    await chit.save();
+    res.status(201).json({ chit });
   } catch (err) {
     res.status(500).json({ message: 'Something went wrong, please try again' });
   }
@@ -20,26 +20,22 @@ const generateChit = async (req, res) => {
 
 const getChits = async (req, res) => {
   try {
-    const todos = await Todo.find();
+    const chits = await Chit.find();
 
-    res.json(todos);
+    res.json(chits);
   } catch (err) {
     res.status(500).json({ message: 'Something went wrong, please try again' });
   }
 };
 
-const getTodo = async (req, res) => {
+const getChit = async (req, res) => {
   try {
-    const todo = await Todo.findById(req.params.id);
+    const chit = await Chit.findById(req.params.id);
 
-    res.json(todo);
+    res.json(chit);
   } catch (err) {
     res.status(500).json({ message: 'Something went wrong, please try again' });
   }
 };
 
-module.exports = {
-  generateChit,
-  getChits,
-  getTodo,
-};
+module.exports = { generateChit, getChits, getChit };
