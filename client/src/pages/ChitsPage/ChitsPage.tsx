@@ -2,15 +2,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useHttp } from '../../hooks/httpHook';
 import { Spinner } from '../../components/Spinner';
 import { ChitItem } from '../../components/ChitItem';
-import './ChitsPage.scss'
+import './ChitsPage.scss';
 
 export const ChitsPage = () => {
   const { request, loading } = useHttp();
-  const [ chits, setChits ] = useState([]);
+  const [chits, setChits] = useState([]);
 
   const fetchChit = useCallback(async () => {
     try {
-      const fetched = await  request('/api/chit/', 'GET', null);
+      const fetched = await request('/api/chit/', 'GET', null);
+
       setChits(fetched);
     } catch (err) {}
   }, [request]);
@@ -30,7 +31,9 @@ export const ChitsPage = () => {
         ? <p>No messages yet</p>
         : (
           <ul className="ChitsPage-List collection">
-            {chits.map(({_id, name, description, date}) => (
+            {chits.map(({
+              _id, name, description, date,
+            }) => (
               <ChitItem
                 key={_id}
                 id={_id}

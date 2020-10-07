@@ -3,9 +3,9 @@ import './ChitItem.scss';
 
 type Props = IChits;
 
-export const ChitItem: React.FC<Props> = ({ id, name, description, date }) => {
+export const ChitItem: React.FC<Props> = ({ name, description, date }) => {
   const localDate = new Date(date).toLocaleString('en-GB');
-  console.log(id, name, description, date);
+
   return (
     <li className="ChitItem collection-item avatar">
       <i className="ChitItem-Icon material-icons circle green darken-3">

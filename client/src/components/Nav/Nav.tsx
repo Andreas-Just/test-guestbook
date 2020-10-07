@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './Nav.scss';
 
 export const Nav = () => {
-
   return (
     <nav className="Nav">
       <div className="Nav-Wrapper green darken-4 nav-wrapper">
@@ -16,7 +15,7 @@ export const Nav = () => {
               to="/"
               exact
               className="Nav-Item"
-              activeClassName='Nav-Item_active'
+              activeClassName="Nav-Item_active"
             >
               Home
             </NavLink>
@@ -25,7 +24,7 @@ export const Nav = () => {
             <NavLink
               to="/chits"
               className="Nav-Item"
-              activeClassName='Nav-Item_active'
+              activeClassName="Nav-Item_active"
             >
               List
             </NavLink>
@@ -34,7 +33,7 @@ export const Nav = () => {
             <NavLink
               to="/create"
               className="Nav-Item"
-              activeClassName='Nav-Item_active'
+              activeClassName="Nav-Item_active"
             >
               Create
             </NavLink>
@@ -44,4 +43,3 @@ export const Nav = () => {
     </nav>
   );
 };
-

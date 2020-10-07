@@ -1,7 +1,9 @@
-import React, { ChangeEvent, useEffect, useState, useRef } from 'react';
+import React, {
+  ChangeEvent, useEffect, useState, useRef,
+} from 'react';
+import { useHistory } from 'react-router';
 import { useHttp } from '../../hooks/httpHook';
 import './CreatePage.scss';
-import { useHistory } from 'react-router';
 
 const option = {
   maxNameSize: 50,
@@ -22,7 +24,7 @@ const defaultValues: NewTaskValues = {
 export const CreatePage = () => {
   const history = useHistory();
   const { loading, request } = useHttp();
-  const [ chit, setChit ] = useState(defaultValues);
+  const [chit, setChit] = useState(defaultValues);
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -89,6 +91,7 @@ export const CreatePage = () => {
         </div>
         <div className="CreatePage-Action card-action">
           <button
+            type="button"
             className="CreatePage-Btn btn green darken-4"
             onClick={createHandler}
             disabled={loading}
