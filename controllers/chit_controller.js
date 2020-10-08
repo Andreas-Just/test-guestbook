@@ -1,7 +1,25 @@
+const { validationResult } = require('express-validator');
 const Chit = require('../models/Chit');
 
 const generateChit = async (req, res) => {
   try {
+    const error = validationResult(req);
+
+    if (!error.isEmpty()) {
+      const message = error.array()
+        .reduce((arr, { msg }) => {
+          if (msg) {
+            arr.push(msg)
+          }
+          return arr;
+        }, []);
+
+      return res.status(400).json({
+        error: error.array(),
+        message,
+      });
+    }
+
     const { name, description, date } =  req.body;
     const existing = await Chit.findOne({ name, description });
 

@@ -1,4 +1,6 @@
 @import "../../assets/scss/utils";
+$orange: map_get($colors, form-orange);
+$green: map_get($colors, green-darken);
 
 .Hero {
   position: absolute;
@@ -16,14 +18,14 @@
   left: 48vw;
   width: 10px;
   height: 10px;
-  border: solid 1px lighten($blue, 8%);
+  border: solid 1px lighten($green, 8%);
   border-radius: 1px;
   transform-origin: top left;
   transform: scale(0) rotate(0deg) translate(-50%, -50%);
   animation: cube 10.5s ease-in forwards infinite;
 
   &:nth-child(2n) {
-    border-color: darken($blue, 2%);
+    border-color: darken($orange, 2%);
   }
 
   &:nth-child(2) {

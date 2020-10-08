@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { useHistory } from 'react-router';
 import { useHttp } from '../../hooks/httpHook';
+import { useMessage } from '../../hooks/messageHook';
 import './CreatePage.scss';
 
 const option = {
@@ -23,9 +24,15 @@ const defaultValues: NewTaskValues = {
 
 export const CreatePage = () => {
   const history = useHistory();
-  const { loading, request } = useHttp();
+  const message = useMessage();
+  const { loading, request, error, clearError } = useHttp();
   const [chit, setChit] = useState(defaultValues);
   const textareaRef = useRef(null);
+
+  useEffect(() => {
+    message(error);
+    clearError();
+  }, [error, message, clearError]);
 
   useEffect(() => {
     window.M.updateTextFields();

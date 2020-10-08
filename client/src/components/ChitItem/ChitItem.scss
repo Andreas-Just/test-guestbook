@@ -3,6 +3,7 @@
 .ChitItem {
   @extend %flex-column-center;
   align-items: flex-start;
+  text-align: left;
 
   &-Header {
     @extend %flex-center;
